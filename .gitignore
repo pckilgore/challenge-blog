@@ -19,7 +19,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Secrets
-secrets.js
+src/AppSync.js
 
 # Notes & Misc
 CRA.README.md

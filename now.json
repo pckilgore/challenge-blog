@@ -1,0 +1,9 @@
+{
+  "name": "grounbreaker-jr-eng-blog",
+  "alias": "groundbreaker",
+  "public": true,
+  "type": "static",
+  "static": {
+    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+  }
+}
