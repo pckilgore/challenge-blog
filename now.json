@@ -1,6 +1,5 @@
 {
-  "name": "grounbreaker-jr-eng-blog",
-  "alias": "groundbreaker",
+  "name": "groundbreaker-jr-eng-blog",
   "public": true,
   "type": "static",
   "static": {
