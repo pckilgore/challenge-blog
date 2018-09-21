@@ -2,8 +2,8 @@
 import React from 'react'
 
 // Components
-import Routes from './routes'
-import Layout from './layout'
+import Routes from './Routes'
+import Layout from './Layout'
 
 //Styles
 import './App.css'
