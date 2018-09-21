@@ -1,8 +1,0 @@
-{
-  "name": "groundbreaker-jr-eng-blog",
-  "public": true,
-  "type": "static",
-  "static": {
-    "rewrites": [{ "source": "**", "destination": "/index.html" }]
-  }
-}
