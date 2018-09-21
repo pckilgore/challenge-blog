@@ -6,14 +6,24 @@ import SinglePost from './components/SinglePost'
 import NewPost from './components/NewPost'
 import NotFound from './components/NotFound'
 
-const Routes = props => (
-  <Switch>
-    <HomeRoute exact path="/" {...props} />
-    <Route exact path="/post/new" component={NewPost} />
-    <PostRoute path="/post/:id" />
-    <Route component={NotFound} />
-  </Switch>
-)
+class Routes extends React.Component {
+  componentDidMount() {
+    this.props.subscribeToNewPosts()
+  }
+
+  render() {
+    const props = this.props
+
+    return (
+      <Switch>
+        <HomeRoute exact path="/" {...props} />
+        <Route exact path="/post/new" component={NewPost} />
+        <PostRoute path="/post/:id" {...props} />
+        <Route component={NotFound} />
+      </Switch>
+    )
+  }
+}
 
 const HomeRoute = props => (
   <Route
@@ -25,9 +35,11 @@ const HomeRoute = props => (
 const PostRoute = props => (
   <Route
     {...props}
-    render={({ match }) => {
-      return <SinglePost id={+match.params.id} />
-    }}
+    render={({ match }) => (
+      <SinglePost
+        post={props.posts.find(post => post.id === match.params.id)}
+      />
+    )}
   />
 )
 

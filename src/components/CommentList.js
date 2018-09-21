@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import CommentForm from './CommentForm'
 import Comment from './Comment'
 
-const CommentList = ({ id, comments }) => (
-  <div className="comments">
+const NoComments = () => <h2>No comments</h2>
+
+const Comments = ({ comments }) => (
+  <Fragment>
     <h2>Comments</h2>
     <ul>
       {comments.map(comment => (
         <Comment comment={comment} key={comment.id} even={comment.id % 2} />
       ))}
     </ul>
-    <CommentForm id={id} />
+  </Fragment>
+)
+
+const CommentList = props => (
+  <div className="comments">
+    {props.comments ? <Comments {...props} /> : <NoComments />}
+    <CommentForm id={props.id} />
   </div>
 )
 

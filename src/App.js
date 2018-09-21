@@ -1,22 +1,21 @@
 // React Libs
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 
+// Components
 import Routes from './routes'
 import Layout from './layout'
 
 //Styles
 import './App.css'
 
-// DummyData
-import { DUMMY } from './DummyData'
+// Data
+import { compose } from 'react-apollo'
+import * as gql from './graphql/resolvers'
 
-export const App = () => (
-  <BrowserRouter>
-    <Layout posts={DUMMY}>
-      <Routes posts={DUMMY} />
-    </Layout>
-  </BrowserRouter>
+export const App = props => (
+  <Layout {...props}>
+    <Routes {...props} />
+  </Layout>
 )
 
-export default App
+export default compose(gql.allPostsAction)(App)
