@@ -8,9 +8,11 @@ const Comments = ({ comments }) => (
   <Fragment>
     <h2>Comments</h2>
     <ul>
-      {comments.map(comment => (
-        <Comment comment={comment} key={comment.id} even={comment.id % 2} />
-      ))}
+      {[...comments]
+        .sort((a, b) => +a.lastUpdated - +b.lastUpdated)
+        .map((comment, idx) => (
+          <Comment comment={comment} key={comment.lastUpdated} even={idx % 2} />
+        ))}
     </ul>
   </Fragment>
 )

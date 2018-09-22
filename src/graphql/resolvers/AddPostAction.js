@@ -26,6 +26,7 @@ const mapPostToProps = props => ({
           imageUrl: '',
           ...post,
           lastUpdated: Date.now(),
+          comments: [],
           version: 1,
         },
       },

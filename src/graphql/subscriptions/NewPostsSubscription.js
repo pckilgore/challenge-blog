@@ -12,6 +12,11 @@ export default gql`
       imageUrl
       status
       version
+      comments {
+        author
+        content
+        lastUpdated
+      }
     }
   }
 `
