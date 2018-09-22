@@ -17,10 +17,10 @@ const Comments = ({ comments }) => (
   </Fragment>
 )
 
-const CommentList = props => (
+const CommentList = ({ post }) => (
   <div className="comments">
-    {props.comments ? <Comments {...props} /> : <NoComments />}
-    <CommentForm id={props.id} />
+    {post.comments ? <Comments {...post} /> : <NoComments />}
+    <CommentForm post={post} />
   </div>
 )
 
