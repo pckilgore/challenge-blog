@@ -129,7 +129,8 @@ form > h1,
   font-size: 3em;
 }
 
-.hover:hover .hover:focus {
+.hover:hover,
+.hover:focus {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
   transition: 200ms;
 }
