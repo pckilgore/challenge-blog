@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link, NavLink, withRouter } from 'react-router-dom'
 
 const HomeButton = ({ shouldRenderOn: render }) =>
@@ -15,14 +15,35 @@ const NewPostButton = ({ shouldRenderOn: render }) =>
     </div>
   ) : null
 
+const DraftPosts = ({ posts, shouldRenderOn: render }) => {
+  const drafts = posts.filter(post => post.status === 'DRAFT').map(post => (
+    <li key={post.id}>
+      <NavLink to={`/post/${post.id}`} activeClassName="active">
+        {post.title}
+      </NavLink>
+    </li>
+  ))
+
+  return render ? (
+    <Fragment>
+      <h3>Draft Posts</h3>
+      <ul>{drafts.length ? drafts : <li className="home">NONE</li>}</ul>
+    </Fragment>
+  ) : null
+}
+
 const Sidebar = ({ posts = [], location }) => (
   <div className="sidebar">
     <NewPostButton shouldRenderOn={location.pathname !== '/post/new'} />
     <HomeButton shouldRenderOn={location.pathname !== '/'} />
+    <DraftPosts
+      shouldRenderOn={location.pathname === '/post/new'}
+      {...{ posts }}
+    />
 
     <h3>Published Posts</h3>
     <ul>
-      {posts.map(post => (
+      {posts.filter(post => post.status === 'PUBLISHED').map(post => (
         <li key={post.id}>
           <NavLink to={`/post/${post.id}`} activeClassName="active">
             {post.title}

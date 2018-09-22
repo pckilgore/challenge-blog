@@ -10,7 +10,7 @@ import './App.css'
 
 // Data
 import { compose } from 'react-apollo'
-import * as gql from './graphql/resolvers'
+import { AllPostsAction } from './graphql/resolvers'
 
 export const App = props => (
   <Layout {...props}>
@@ -18,4 +18,4 @@ export const App = props => (
   </Layout>
 )
 
-export default compose(gql.allPostsAction)(App)
+export default compose(AllPostsAction)(App)

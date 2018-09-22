@@ -13,7 +13,6 @@ class Routes extends React.Component {
 
   render() {
     const props = this.props
-
     return (
       <Switch>
         <HomeRoute exact path="/" {...props} />
@@ -37,7 +36,9 @@ const PostRoute = props => (
     {...props}
     render={({ match }) => (
       <SinglePost
-        post={props.posts.find(post => post.id === match.params.id)}
+        post={
+          props.posts && props.posts.find(post => post.id === match.params.id)
+        }
       />
     )}
   />
