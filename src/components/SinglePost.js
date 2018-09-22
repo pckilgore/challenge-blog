@@ -5,7 +5,7 @@ import CommentList from './CommentList'
 const SinglePost = ({ post = {} }) => (
   <Fragment>
     <Post post={post} />
-    <CommentList comments={post.comments || null} id={post.id} />
+    <CommentList post={post} />
   </Fragment>
 )
 

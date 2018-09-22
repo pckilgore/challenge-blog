@@ -13,7 +13,6 @@ const mapPostsProps = props => {
   const updateQuery = (prev, newData) => {
     const newPost = newData.subscriptionData.data.newPost
     const oldPosts = prev.allPost.posts
-
     return {
       ...prev,
       allPost: {

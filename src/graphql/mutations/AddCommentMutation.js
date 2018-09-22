@@ -1,16 +1,16 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  subscription NewPostSub {
-    newPost {
+  mutation addComment($id: ID!, $author: String!, $content: String!) {
+    addComment(id: $id, author: $author, content: $content) {
       __typename
       id
-      title
       author
+      title
       content
-      lastUpdated
       imageUrl
       status
+      lastUpdated
       version
       comments {
         author

@@ -24,6 +24,11 @@ export default gql`
       status
       lastUpdated
       version
+      comments {
+        author
+        content
+        lastUpdated
+      }
     }
   }
 `

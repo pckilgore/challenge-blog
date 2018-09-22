@@ -16,13 +16,7 @@ class NewPost extends React.Component {
 
   handleSubmit = async evt => {
     evt.preventDefault()
-    let payload = {}
-
-    for (let key in this.state) {
-      if (this.state[key] !== '') payload[key] = this.state[key]
-    }
-
-    await this.props.onAdd(payload)
+    await this.props.onAdd({ ...this.state })
     this.props.history.push('/')
   }
 
