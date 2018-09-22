@@ -2,15 +2,15 @@
 import React from 'react'
 
 // Components
-import Routes from './routes'
-import Layout from './layout'
+import Routes from './Routes'
+import Layout from './Layout'
 
 //Styles
 import './App.css'
 
 // Data
 import { compose } from 'react-apollo'
-import * as gql from './graphql/resolvers'
+import { AllPostsAction } from './graphql/resolvers'
 
 export const App = props => (
   <Layout {...props}>
@@ -18,4 +18,4 @@ export const App = props => (
   </Layout>
 )
 
-export default compose(gql.allPostsAction)(App)
+export default compose(AllPostsAction)(App)
