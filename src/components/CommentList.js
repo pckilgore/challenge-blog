@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import CommentForm from './CommentForm'
+import PropTypes from 'prop-types'
+
 import Comment from './Comment'
 
 const NoComments = () => <h2>No comments</h2>
@@ -11,17 +12,29 @@ const Comments = ({ comments }) => (
       {[...comments]
         .sort((a, b) => +a.lastUpdated - +b.lastUpdated)
         .map((comment, idx) => (
-          <Comment comment={comment} key={comment.lastUpdated} even={idx % 2} />
+          <Comment
+            {...comment}
+            key={comment.lastUpdated}
+            even={Boolean(idx % 2)}
+          />
         ))}
     </ul>
   </Fragment>
 )
 
-const CommentList = ({ post }) => (
-  <div className="comments">
-    {post.comments ? <Comments {...post} /> : <NoComments />}
-    <CommentForm post={post} />
-  </div>
-)
+const CommentList = ({ post }) =>
+  post.comments && post.comments.length ? (
+    <Comments {...post} />
+  ) : (
+    <NoComments />
+  )
 
 export default CommentList
+
+CommentList.propTypes = {
+  post: PropTypes.object,
+}
+
+Comments.propTypes = {
+  comments: PropTypes.array,
+}

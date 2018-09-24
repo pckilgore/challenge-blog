@@ -1,10 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import FormField from './FormField'
 
 import { compose } from 'react-apollo'
 import { AddCommentAction } from '../graphql/resolvers'
 
-class CommentForm extends React.Component {
+export class CommentForm extends React.Component {
   state = {
     id: this.props.post.id,
     author: '',
@@ -40,4 +42,13 @@ class CommentForm extends React.Component {
   }
 }
 
-export default compose(AddCommentAction)(CommentForm)
+const ConnectedCommentForm = compose(AddCommentAction)(CommentForm)
+
+export default ConnectedCommentForm
+
+CommentForm.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }),
+}

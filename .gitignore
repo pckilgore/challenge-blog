@@ -24,3 +24,9 @@ src/AppSync.js
 # Notes & Misc
 CRA.README.md
 REQUIREMENTS.md
+
+# Deploy-settings
+now.json
+
+# Editor
+gb-blog.sublime-project
