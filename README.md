@@ -2,7 +2,29 @@
 
 _by_ Patrick Kilgore
 
-### Things I'd Do, If Time Wasn't Money
+## Development
+
+```bash
+$ yarn install
+$ yarn start
+```
+
+## Production
+
+```bash
+$ yarn install
+$ yarn deploy
+```
+
+## Test
+
+```bash
+$ yarn test
+(optional)
+$ yarn test --coverage
+```
+
+### With more time...
 
 -   Abstract the posts form into a HOC to do editing/adding
 -   Editing posts, including setting DRAFT->Published (currently can only view drafts on the add post page)
