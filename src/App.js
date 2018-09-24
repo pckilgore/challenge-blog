@@ -18,4 +18,5 @@ export const App = props => (
   </Layout>
 )
 
-export default compose(AllPostsAction)(App)
+const AppWithData = compose(AllPostsAction)(App)
+export default AppWithData

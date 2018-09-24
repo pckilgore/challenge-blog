@@ -4,16 +4,19 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.16",
-    "aws-appsync": "^1.3.4",
-    "aws-appsync-react": "^1.1.4",
+    "apollo-client": "^2.4.2",
+    "aws-appsync": "^1.3.5-link-effect.2",
+    "aws-appsync-react": "^1.1.5-link-effect.2",
     "aws-sdk": "^2.317.0",
     "graphql": "^14.0.2",
+    "jest-dom": "^1.12.1",
     "react": "^16.5.2",
     "react-apollo": "^2.1.11",
     "react-autosize-textarea": "^4.0.0",
     "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "react-testing-library": "^5.1.0",
     "react-toggle-button": "^2.2.0"
   },
   "scripts": {
@@ -21,5 +24,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.6.0",
+    "eslint": "^5.6.0",
+    "eslint-config-prettier": "^3.1.0",
+    "prettier": "^1.14.3"
   }
 }

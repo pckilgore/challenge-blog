@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 import TextareaAutosize from 'react-autosize-textarea'
 
@@ -34,3 +35,24 @@ export const FormField = props => (
 )
 
 export default FormField
+
+FormField.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.oneOf([
+    'textarea',
+    'password',
+    'submit',
+    'number',
+    'text',
+    'reset',
+    'radio',
+    'checkbox',
+    'file',
+    'hidden',
+    'date',
+    'color',
+    'email',
+    'month',
+    'datetime-local',
+  ]),
+}
