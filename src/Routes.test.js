@@ -46,18 +46,20 @@ describe('The Router', () => {
   })
 
   it('...renders a single post at /post/:id', () => {
-    const { getByText } = renderWithRouter(<MockRouter />, {
+    const { getByText, queryAllByText } = renderWithRouter(<MockRouter />, {
       route: '/post/fakeId',
     })
-
-    expect(getByText('Test title', { exact: false })).toBeInTheDocument()
+    expect(queryAllByText(testPost.title, { exact: false })).toHaveLength(1)
+    expect(getByText(testPost.title, { exact: false })).toBeInTheDocument()
+    expect(
+      getByText('WRITE A NEW COMMENT', { exact: false })
+    ).toBeInTheDocument()
   })
 
   it('...renders all Posts at /', () => {
     const { queryAllByText } = renderWithRouter(<MockRouter />, {
       route: '/',
     })
-
-    expect(queryAllByText('Test title', { exact: false })).toHaveLength(3)
+    expect(queryAllByText(testPost.title, { exact: false })).toHaveLength(3)
   })
 })
